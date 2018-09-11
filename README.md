@@ -1,5 +1,7 @@
 # Building an AMI using Packer
 
+Build an AMI based on the latest Amazon Linux 2 image.
+
 ## Usage
 
     packer validate example.json
