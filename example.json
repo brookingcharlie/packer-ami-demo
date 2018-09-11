@@ -1,0 +1,28 @@
+{
+  "builders" : [
+    {
+      "region" : "ap-southeast-2",
+      "type" : "amazon-ebs",
+      "instance_type" : "t2.micro",
+      "source_ami_filter": {
+        "filters": {
+          "virtualization-type": "hvm",
+          "architecture": "x86_64",
+          "root-device-type": "ebs",
+          "name": "amzn2-ami-*-gp2"
+        },
+        "owners": ["137112412989"],
+        "most_recent": true
+      },
+      "ssh_username" : "ec2-user",
+      "ami_name" : "packer-example {{timestamp}}",
+      "ami_description" : "Example AMI built with Packer"
+    }
+  ],
+  "provisioners" : [
+    {
+      "type" : "shell",
+      "script" : "./setup.sh"
+    }
+  ]
+}
